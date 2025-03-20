@@ -38,3 +38,12 @@ This is a simple todo list app where users can sign up/in and log out, they can 
 - authentication validation (client and server side)
 - styling and responsive formatting
 - password recovery
+
+---
+
+## Notes
+
+Links to sources I found useful and things that I researched for more information
+
+- [Next Dynamic component imports](https://nextjs.org/learn/seo/dynamic-import-components): review for **AVATAR** for dynamic importing
+- [Error Page](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
