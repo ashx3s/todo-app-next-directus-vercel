@@ -5,12 +5,6 @@ import { useState } from "react";
 - TODO: Clear input after adding
 */
 
-/*  Functions
-- create new todo
-- delete todo
-- check off todo
-*/
-
 export default function Home() {
   const [todoList, setTodoList] = useState([
     {
