@@ -3,6 +3,20 @@
 **App Description**
 This is a simple todo list app where users can sign up/in and log out, they can create todo items that they can view and check off
 
+## Instructions
+
+- `npm run dev` run development server
+- `npm run build` build app
+- `npm run start` run the latest built app
+
+### Dependencies
+
+- Server Deployment: [Render](https://render.com/deploy-docker/directus)
+- Client Deployment: [Vercel](https://vercel.com/docs/frameworks/nextjs)
+- Data Management: [Directus SQL](https://directus.io/docs/configuration/database)
+- Authentication: [Directus Auth](https://docs.directus.io/reference/authentication.html)
+- Styling: [Tailwind](https://tailwindcss.com/)
+
 ## User Stories MVP
 
 - I can create new TODO items that have a title and description
