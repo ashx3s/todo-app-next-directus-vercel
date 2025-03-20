@@ -17,6 +17,11 @@ This is a simple todo list app where users can sign up/in and log out, they can 
 - Authentication: [Directus Auth](https://docs.directus.io/reference/authentication.html)
 - Styling: [Tailwind](https://tailwindcss.com/)
 
+### Optimization Tasks
+
+- [ ] Pick a long term strategy for organizing route, component, and lib directories -- see the docs linked below on project structure
+- [ ] Break code up into components
+
 ## User Stories MVP
 
 - I can create new TODO items that have a title and description
@@ -47,3 +52,4 @@ Links to sources I found useful and things that I researched for more informatio
 
 - [Next Dynamic component imports](https://nextjs.org/learn/seo/dynamic-import-components): review for **AVATAR** for dynamic importing
 - [Error Page](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
+- [Project Structure Docs](https://nextjs.org/docs/app/getting-started/project-structure)
