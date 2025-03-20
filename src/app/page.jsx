@@ -32,7 +32,33 @@ export default function Home() {
       checked: false,
     },
   ]);
-
+  function handleSubmit(el) {
+    el.preventDefault();
+    const title = el.target.title.value;
+    const description = el.target.description.value;
+    if (title) {
+      setTodoList([
+        ...todoList,
+        {
+          id: Date.now(),
+          title,
+          description,
+          checked: false,
+        },
+      ]);
+      el.target.reset();
+    }
+  }
+  function handleToggle(id) {
+    setTodoList(
+      todoList.map((todo) =>
+        todo.id === id ? { ...todo, checked: !todo.checked } : todo
+      )
+    );
+  }
+  function handleDelete(id) {
+    setTodoList(todoList.filter((todo) => todo.id !== id));
+  }
   return (
     <>
       <header className='my-4'>
@@ -41,7 +67,7 @@ export default function Home() {
       </header>
       <section className='container my-6'>
         <h2 className='text-3xl font-semibold'>TODO Form</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='my-4'>
             <label htmlFor='title' className='text-lg font-bold'>
               Title
