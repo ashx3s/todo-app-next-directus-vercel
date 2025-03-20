@@ -5,11 +5,10 @@ import { useState } from "react";
 - TODO: Clear input after adding
 */
 
-/*  ACTIONS
+/*  Functions
 - create new todo
 - delete todo
-- edit todo
-- check off todo (second list)
+- check off todo
 */
 
 export default function Home() {
@@ -18,25 +17,22 @@ export default function Home() {
       id: 1,
       title: "Sample Title 1",
       description: "Doing stuff to finish this task",
+      checked: false,
     },
     {
       id: 2,
       title: "Sample Title 2",
       description: "Doing stuff to finish this task",
+      checked: true,
     },
     {
       id: 3,
       title: "Sample Title 3",
       description: "Doing stuff to finish this task",
+      checked: false,
     },
   ]);
-  const [completedTodos, setCompletedTodos] = useState([
-    {
-      id: 5,
-      title: "Sample Title 5",
-      description: "Doing stuff to finish this task",
-    },
-  ]);
+
   return (
     <>
       <header className='my-4'>
@@ -45,7 +41,7 @@ export default function Home() {
       </header>
       <section className='container my-6'>
         <h2 className='text-3xl font-semibold'>TODO Form</h2>
-        <form action=''>
+        <form>
           <div className='my-4'>
             <label htmlFor='title' className='text-lg font-bold'>
               Title
@@ -81,32 +77,48 @@ export default function Home() {
       <section className='container my-6'>
         <h2 className='text-3xl font-semibold'>Show TODO Items</h2>
         <ul>
-          {todoList.length > 0 ? (
-            todoList.map((item) => {
-              return (
-                <li key={item.id} className='bg-gray-900 p-4 rounded-md my-4'>
-                  <h3 className='text-xl font-semibold'>{item.title}</h3>
-                  <p>{item.description}</p>
-                </li>
-              );
-            })
-          ) : (
-            <span>No items</span>
-          )}
+          {todoList
+            .filter((todo) => !todo.checked)
+            .map((item) => (
+              <li key={item.id} className='bg-gray-900 p-4 rounded-md my-4'>
+                <input
+                  type='checkbox'
+                  checked={item.checked}
+                  onChange={() => handleToggle(item.id)}
+                />
+                <h3 className='text-xl font-semibold'>{item.title}</h3>
+                <p>{item.description}</p>
+                <div className='flex gap-2 my-2'>
+                  <button
+                    className='px-3 py-2 rounded-lg bg-red-500'
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    delete
+                  </button>
+                </div>
+              </li>
+            ))}
         </ul>
       </section>
       <section className='container my-6'>
         <h2 className='text-3xl font-semibold'>Completed Items</h2>
-        {completedTodos.length > 0 ? (
-          completedTodos.map((completedItem, index) => {
-            return (
-              <li key={index} className='text-gray-500 p-4'>
-                <h3 className='line-through'>{completedItem.title}</h3>
-              </li>
-            );
-          })
+        {todoList.filter((todo) => todo.checked).length > 0 ? (
+          todoList
+            .filter((todo) => todo.checked)
+            .map((completedItem) => {
+              return (
+                <li key={completedItem.id} className='text-gray-500 p-4'>
+                  <input
+                    type='checkbox'
+                    checked={completedItem.checked}
+                    onChange={() => handleToggle(completedItem.id)}
+                  />
+                  <h3 className='line-through'>{completedItem.title}</h3>
+                </li>
+              );
+            })
         ) : (
-          <li>"no items"</li>
+          <span>No Items</span>
         )}
       </section>
     </>
