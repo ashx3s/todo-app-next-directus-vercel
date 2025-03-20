@@ -45,6 +45,38 @@ export default function Home() {
       </header>
       <section className='container my-6'>
         <h2 className='text-3xl font-semibold'>TODO Form</h2>
+        <form action=''>
+          <div className='my-4'>
+            <label htmlFor='title' className='text-lg font-bold'>
+              Title
+            </label>
+            <input
+              type='text'
+              id='title'
+              name='title'
+              placeholder='enter task'
+              className='block bg-gray-900 p-2 rounded-md my-2'
+              required
+            />
+          </div>
+          <div className='my-4'>
+            <label htmlFor='description' className='text-lg font-bold'>
+              Description (optional)
+            </label>
+            <input
+              type='textarea'
+              id='description'
+              name='description'
+              placeholder='enter extra details'
+              className='block bg-gray-900 p-6 rounded-md my-2'
+            />
+          </div>
+          <input
+            type='submit'
+            value='Add'
+            className='bg-blue-400 rounded-lg px-6 py-2 my-4'
+          />
+        </form>
       </section>
       <section className='container my-6'>
         <h2 className='text-3xl font-semibold'>Show TODO Items</h2>
