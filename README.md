@@ -53,3 +53,5 @@ Links to sources I found useful and things that I researched for more informatio
 - [Next Dynamic component imports](https://nextjs.org/learn/seo/dynamic-import-components): review for **AVATAR** for dynamic importing
 - [Error Page](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
 - [Project Structure Docs](https://nextjs.org/docs/app/getting-started/project-structure)
+- [Environment Variables](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
+- [Directus Docs Nextjs](https://docs.directus.io/guides/headless-cms/build-static-website/next.html)
