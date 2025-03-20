@@ -9,7 +9,7 @@ export default function AppHeader() {
             LOGO
           </Link>
         </div>
-        <ul className='flex gap-4 bg-blue-500 mx-8'>
+        <ul className='flex gap-4  mx-8'>
           <li>
             {/* Make this a protected route */}
             <Link href='/todo-app'>TODO App</Link>
