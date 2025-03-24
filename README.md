@@ -55,3 +55,4 @@ Links to sources I found useful and things that I researched for more informatio
 - [Project Structure Docs](https://nextjs.org/docs/app/getting-started/project-structure)
 - [Environment Variables](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
 - [Directus Docs Nextjs](https://docs.directus.io/guides/headless-cms/build-static-website/next.html)
+- [JSX Registration Form Geeks for Geeks](https://www.geeksforgeeks.org/react-hook-form-create-basic-reactjs-registration-and-login-form/)
