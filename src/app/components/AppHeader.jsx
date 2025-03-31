@@ -17,12 +17,14 @@ export default function AppHeader() {
             <Link href="/server-todo-app">Server TODO App</Link>
           </li>
           <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
             <Link href="/login">Sign In</Link>
           </li>
         </ul>
       </nav>
       <div className="flex gap-4 ">
-        {/* hrefDO: Logout buthrefn only visible when user is logged in */}
         <button>Logout</button>
         <div>AVATAR</div>
       </div>
