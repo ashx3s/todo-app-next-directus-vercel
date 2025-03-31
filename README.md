@@ -1,5 +1,31 @@
 # README TODO APP
 
+## WIP Documentation
+
+### Rendering Code Plan
+
+- SSR static route from CMS
+  - home page
+- SSR dynamic route from CMS
+  - about page
+- SSR API feeds SWR CSR Component
+  - todos
+- CSR Component fetch with useState and useEffect (don't use)
+  - would also be for the todos
+
+### Next Steps
+
+- Finish component setup
+- Create Post, Edit, and Delete req for TODOS
+- Merge component code with cms integration code
+
+### Questions
+
+- What is `[slug]`?
+- [slug] page getPage params.slug error?
+
+---
+
 **App Description**
 This is a simple todo list app where users can sign up/in and log out, they can create todo items that they can view and check off
 
@@ -16,6 +42,11 @@ This is a simple todo list app where users can sign up/in and log out, they can 
 - Data Management: [Directus SQL](https://directus.io/docs/configuration/database)
 - Authentication: [Directus Auth](https://docs.directus.io/reference/authentication.html)
 - Styling: [Tailwind](https://tailwindcss.com/)
+
+### Optimization Tasks
+
+- [ ] Pick a long term strategy for organizing route, component, and lib directories -- see the docs linked below on project structure
+- [ ] Break code up into components
 
 ## User Stories MVP
 
@@ -47,3 +78,7 @@ Links to sources I found useful and things that I researched for more informatio
 
 - [Next Dynamic component imports](https://nextjs.org/learn/seo/dynamic-import-components): review for **AVATAR** for dynamic importing
 - [Error Page](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
+- [Project Structure Docs](https://nextjs.org/docs/app/getting-started/project-structure)
+- [Environment Variables](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
+- [Directus Docs Nextjs](https://docs.directus.io/guides/headless-cms/build-static-website/next.html)
+- [JSX Registration Form Geeks for Geeks](https://www.geeksforgeeks.org/react-hook-form-create-basic-reactjs-registration-and-login-form/)
