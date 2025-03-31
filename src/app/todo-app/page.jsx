@@ -1,15 +1,31 @@
 import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
+export const revalidate = 60; // revalidate the data at most every hour
+
 async function getTodos() {
   try {
     const todos = await directus.request(readItems("todos"));
+    if (!todos) {
+      throw new Error("Directus returned empty or invalid data");
+    }
     return todos;
   } catch (error) {
-    console.error("Error", error);
+    console.error("Data Fetch Error", error);
+    return [];
   }
 }
-export default async function TodoApp() {
+export default async function Page() {
   const todos = await getTodos();
+  console.log(todos);
+  if (!todos || todos.length === 0) {
+    return (
+      <>
+        <h1>Hello</h1>
+        <p>No todos found</p>
+      </>
+    );
+  }
+  console.log(todos);
   return (
     <>
       <header>
@@ -23,7 +39,7 @@ export default async function TodoApp() {
         <ul>
           {todos.map((todo) => {
             return (
-              <li key={todo.id} className='bg-gray-900 rounded-md p-4 my-2'>
+              <li key={todo.id} className="bg-gray-900 rounded-md p-4 my-2">
                 {todo.title}
               </li>
             );
