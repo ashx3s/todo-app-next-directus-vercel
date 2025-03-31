@@ -1,21 +1,15 @@
 "use client";
 import useSWR from "swr";
 import TodoList from "../components/TodoList";
+import fetcher from "@/utils/fetcher";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const initialTodos = [
-  {
-    id: 1,
-    title: "Blah todo fallback",
-    description: "we don't want to use this",
-  },
-];
 export default function TodoApp() {
-  const { data: todos, mutate } = useSWR("/api/todos", fetcher, {
-    fallbackData: initialTodos,
-  });
+  const { data: todos, error, isLoading } = useSWR("/api/todos", fetcher);
 
-  console.log(todos);
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error loading todos.</p>;
+  if (!todos) return <p>No todos found</p>;
+
   return (
     <>
       <header>

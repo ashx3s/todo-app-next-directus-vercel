@@ -1,7 +1,6 @@
 "use client";
 import useSWR from "swr";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import fetcher from "@/utils/fetcher";
 
 export default function TodoListSWR() {
   const { data: todos, error, isLoading } = useSWR("/api/todos", fetcher);
