@@ -1,26 +1,14 @@
-// This file fetches the data server side
-import { notFound } from "next/navigation";
 import Link from "next/link";
-import DOMPurify from "dompurify";
-import directus from "@/lib/directus";
-import { readItem } from "@directus/sdk";
-
-async function getPage(slug) {
-  try {
-    const page = await directus.request(readItem("pages", slug));
-    return page;
-  } catch (error) {
-    notFound();
-  }
-}
+import getPageData from "@/utils/getPageData";
+import DisplaySanitizedSection from "../components/DisplaySanitizedSection";
 
 export default async function DynamicPage({ params }) {
-  const page = await getPage(params.slug);
-  if (!page) {
+  const pageData = await getPageData(params.slug);
+  if (!pageData) {
     return (
       <section>
         <p className="text-2xl font-semibold text-gray-200">
-          Error loading home page content
+          Error loading {pageData.slug || params.slug} page content
         </p>
         <Link
           href="/"
@@ -31,11 +19,7 @@ export default async function DynamicPage({ params }) {
       </section>
     );
   }
-  // const sanitizedHtml = DOMPurify.sanitize(page.content);
   return (
-    <>
-      <div>{page.title}</div>
-      <div dangerouslySetInnerHTML={{ __html: page.content }}></div>
-    </>
+    <DisplaySanitizedSection sectionData={pageData} bgColor="bg-orange-900" />
   );
 }
