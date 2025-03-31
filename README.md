@@ -1,5 +1,23 @@
 # README TODO APP
 
+## Tasks for today 25-03-31
+
+### component stuff
+
+- fix issue #2
+- finish components with props
+
+### rendering stuff
+
+- **find difference** between client side rendering vs server side rendering
+  - how does next handle these two renderings work to affect the user experience
+  - data structure effects?
+  - how does this affect build
+- test code of client side page vs server side page
+  - create 2 pages (CSR, SSR)
+  - read docs
+  - check logging (CSR => browser, SSR => server terminal)
+
 **App Description**
 This is a simple todo list app where users can sign up/in and log out, they can create todo items that they can view and check off
 
