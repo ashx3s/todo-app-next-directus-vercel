@@ -1,14 +1,7 @@
 "use client";
-import useSWR from "swr";
 import { useState } from "react";
-/* utility functions
-- TODO: Clean up input with trim
-- TODO: Clear input after adding
-*/
 
 export default function Home() {
-  const data = useSWR("http://localhost:3000/api/global", fetcher);
-  console.log(data);
   const [todoList, setTodoList] = useState([
     {
       id: 1,
@@ -59,7 +52,7 @@ export default function Home() {
   return (
     <>
       <header className="my-4">
-        <h1 className="text-5xl font-semibold">{data.title}</h1>
+        <h1 className="text-5xl font-semibold">Title</h1>
         <p>Login to use our fantastic task organizing app</p>
       </header>
       <section className="container my-6">
