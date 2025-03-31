@@ -1,4 +1,5 @@
 "use client";
+import useSWR from "swr";
 import { useState } from "react";
 /* utility functions
 - TODO: Clean up input with trim
@@ -6,6 +7,8 @@ import { useState } from "react";
 */
 
 export default function Home() {
+  const data = useSWR("http://localhost:3000/api/global", fetcher);
+  console.log(data);
   const [todoList, setTodoList] = useState([
     {
       id: 1,
@@ -55,62 +58,62 @@ export default function Home() {
   }
   return (
     <>
-      <header className='my-4'>
-        <h1 className='text-5xl font-semibold'>TODO App</h1>
+      <header className="my-4">
+        <h1 className="text-5xl font-semibold">{data.title}</h1>
         <p>Login to use our fantastic task organizing app</p>
       </header>
-      <section className='container my-6'>
-        <h2 className='text-3xl font-semibold'>TODO Form</h2>
+      <section className="container my-6">
+        <h2 className="text-3xl font-semibold">TODO Form</h2>
         <form onSubmit={handleSubmit}>
-          <div className='my-4'>
-            <label htmlFor='title' className='text-lg font-bold'>
+          <div className="my-4">
+            <label htmlFor="title" className="text-lg font-bold">
               Title
             </label>
             <input
-              type='text'
-              id='title'
-              name='title'
-              placeholder='enter task'
-              className='block bg-gray-900 p-2 rounded-md my-2'
+              type="text"
+              id="title"
+              name="title"
+              placeholder="enter task"
+              className="block bg-gray-900 p-2 rounded-md my-2"
               required
             />
           </div>
-          <div className='my-4'>
-            <label htmlFor='description' className='text-lg font-bold'>
+          <div className="my-4">
+            <label htmlFor="description" className="text-lg font-bold">
               Description (optional)
             </label>
             <input
-              type='textarea'
-              id='description'
-              name='description'
-              placeholder='enter extra details'
-              className='block bg-gray-900 p-6 rounded-md my-2'
+              type="textarea"
+              id="description"
+              name="description"
+              placeholder="enter extra details"
+              className="block bg-gray-900 p-6 rounded-md my-2"
             />
           </div>
           <input
-            type='submit'
-            value='Add'
-            className='bg-blue-400 rounded-lg px-6 py-2 my-4'
+            type="submit"
+            value="Add"
+            className="bg-blue-400 rounded-lg px-6 py-2 my-4"
           />
         </form>
       </section>
-      <section className='container my-6'>
-        <h2 className='text-3xl font-semibold'>Show TODO Items</h2>
+      <section className="container my-6">
+        <h2 className="text-3xl font-semibold">Show TODO Items</h2>
         <ul>
           {todoList
             .filter((todo) => !todo.checked)
             .map((item) => (
-              <li key={item.id} className='bg-gray-900 p-4 rounded-md my-4'>
+              <li key={item.id} className="bg-gray-900 p-4 rounded-md my-4">
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   checked={item.checked}
                   onChange={() => handleToggle(item.id)}
                 />
-                <h3 className='text-xl font-semibold'>{item.title}</h3>
+                <h3 className="text-xl font-semibold">{item.title}</h3>
                 <p>{item.description}</p>
-                <div className='flex gap-2 my-2'>
+                <div className="flex gap-2 my-2">
                   <button
-                    className='px-3 py-2 rounded-lg bg-red-500'
+                    className="px-3 py-2 rounded-lg bg-red-500"
                     onClick={() => handleDelete(item.id)}
                   >
                     delete
@@ -120,20 +123,20 @@ export default function Home() {
             ))}
         </ul>
       </section>
-      <section className='container my-6'>
-        <h2 className='text-3xl font-semibold'>Completed Items</h2>
+      <section className="container my-6">
+        <h2 className="text-3xl font-semibold">Completed Items</h2>
         {todoList.filter((todo) => todo.checked).length > 0 ? (
           todoList
             .filter((todo) => todo.checked)
             .map((completedItem) => {
               return (
-                <li key={completedItem.id} className='text-gray-500 p-4'>
+                <li key={completedItem.id} className="text-gray-500 p-4">
                   <input
-                    type='checkbox'
+                    type="checkbox"
                     checked={completedItem.checked}
                     onChange={() => handleToggle(completedItem.id)}
                   />
-                  <h3 className='line-through'>{completedItem.title}</h3>
+                  <h3 className="line-through">{completedItem.title}</h3>
                 </li>
               );
             })

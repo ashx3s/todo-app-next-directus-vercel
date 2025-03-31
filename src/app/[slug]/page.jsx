@@ -31,11 +31,11 @@ export default async function DynamicPage({ params }) {
       </section>
     );
   }
-  const sanitizedHtml = DOMPurify.sanitize(page.content);
+  // const sanitizedHtml = DOMPurify.sanitize(page.content);
   return (
     <>
       <div>{page.title}</div>
-      <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }}></div>
+      <div dangerouslySetInnerHTML={{ __html: page.content }}></div>
     </>
   );
 }

@@ -1,5 +1,31 @@
 # README TODO APP
 
+## WIP Documentation
+
+### Rendering Code Plan
+
+- SSR static route from CMS
+  - home page
+- SSR dynamic route from CMS
+  - about page
+- SSR API feeds SWR CSR Component
+  - todos
+- CSR Component fetch with useState and useEffect (don't use)
+  - would also be for the todos
+
+### Next Steps
+
+- Finish component setup
+- Create Post, Edit, and Delete req for TODOS
+- Merge component code with cms integration code
+
+### Questions
+
+- What is `[slug]`?
+- [slug] page getPage params.slug error?
+
+---
+
 **App Description**
 This is a simple todo list app where users can sign up/in and log out, they can create todo items that they can view and check off
 

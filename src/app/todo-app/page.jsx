@@ -1,6 +1,6 @@
 import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
-export const revalidate = 60; // revalidate the data at most every hour
+export const revalidate = 3600; // revalidate the data at most every hour
 
 async function getTodos() {
   try {
@@ -14,7 +14,7 @@ async function getTodos() {
     return [];
   }
 }
-export default async function Page() {
+export default async function DynamicPage() {
   const todos = await getTodos();
   console.log(todos);
   if (!todos || todos.length === 0) {

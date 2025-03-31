@@ -4,6 +4,7 @@ import { readItems } from "@directus/sdk";
 export async function GET() {
   try {
     const todos = await directus.request(readItems("todos"));
+    console.log(todos);
     return Response.json(todos);
   } catch (error) {
     console.error("API Error:", error);
